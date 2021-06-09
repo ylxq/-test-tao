@@ -1,23 +1,15 @@
 package com.example.springdemo;
 
-import com.example.springdemo.lookup.B;
-import com.example.springdemo.lookup.MainBTest;
-import com.example.springdemo.lookup.MainBTest2;
 import com.example.springdemo.rabbitmq.RabbitService;
 import com.example.springdemo.replace.OldValueCalculate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.EnableLoadTimeWeaving;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
-
-import static org.springframework.context.annotation.EnableLoadTimeWeaving.AspectJWeaving.AUTODETECT;
+import org.springframework.web.multipart.MultipartFile;
 
 @SpringBootApplication
 @RestController
@@ -36,6 +28,13 @@ public class SpringdemoApplication implements CommandLineRunner {
 
     @RequestMapping("/test123")
     public Object test(boolean test) throws InterruptedException {
+        rabbitService.send("test");
+        return "hello world";
+    }
+
+
+   @RequestMapping("/upload")
+    public Object upload(MultipartFile file) throws InterruptedException {
         rabbitService.send("test");
         return "hello world";
     }
