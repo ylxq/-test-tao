@@ -1,5 +1,8 @@
 package com.example.design.structure.bridge;
 
+/**
+ * 多维度组合
+ */
 public class BridgeMain {
     public static void main(String[] args) {
         HUAWEIBrand huaweiBrand = new HUAWEIBrand();
