@@ -1,5 +1,5 @@
 package com.example.design.structure.decoration;
 
 public interface Compoment {
-    void operation();
+    void operation(String version);
 }

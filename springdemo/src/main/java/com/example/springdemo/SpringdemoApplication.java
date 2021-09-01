@@ -47,6 +47,7 @@ public class SpringdemoApplication implements CommandLineRunner {
         String hello_world = oldValueCalculate.computeValue("hello world");
 
         System.out.println(hello_world);
+        
     }
 
 

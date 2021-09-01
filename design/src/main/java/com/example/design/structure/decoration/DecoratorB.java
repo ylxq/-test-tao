@@ -1,6 +1,8 @@
 package com.example.design.structure.decoration;
 
-public class DecoratorB extends Decorator{
+import java.lang.reflect.Method;
+
+public class DecoratorB extends Decorator {
     public DecoratorB(Compoment compoment) {
         super(compoment);
     }
@@ -10,8 +12,22 @@ public class DecoratorB extends Decorator{
     }
 
     @Override
-    public void operation() {
-        super.operation();
-        after();
+    public void operation(String version) {
+        super.operation(version);
+        try {
+            Method method = this.getClass().getMethod("action" + version.replace(".", "0"), String.class);
+            method.invoke(this, version);
+        } catch (Exception e) {
+//            e.printStackTrace();
+            //donothing
+        }
+    }
+
+    public void action50902(String abc) {
+        System.out.println(abc);
+    }
+
+    public void action50903(String abc) {
+        System.out.println(abc);
     }
 }

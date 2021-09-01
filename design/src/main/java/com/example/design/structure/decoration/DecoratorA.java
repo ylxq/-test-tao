@@ -1,6 +1,6 @@
 package com.example.design.structure.decoration;
 
-public class DecoratorA extends Decorator{
+public class DecoratorA extends Decorator {
     public DecoratorA(Compoment compoment) {
         super(compoment);
     }
@@ -10,8 +10,8 @@ public class DecoratorA extends Decorator{
     }
 
     @Override
-    public void operation() {
+    public void operation(String version) {
         before();
-        super.operation();
+        super.operation(version);
     }
 }

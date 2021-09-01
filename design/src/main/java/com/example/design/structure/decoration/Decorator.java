@@ -8,9 +8,9 @@ public abstract class Decorator implements Compoment {
     }
 
     @Override
-    public void operation() {
+    public void operation(String version) {
         if (compoment != null) {
-            compoment.operation();
+            compoment.operation(version);
         }
     }
 }

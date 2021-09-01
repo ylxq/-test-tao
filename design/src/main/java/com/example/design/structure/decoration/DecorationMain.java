@@ -6,7 +6,11 @@ public class DecorationMain {
 
         compoment = new DecoratorA(compoment);
         compoment = new DecoratorB(compoment);
+        compoment = new Version50902Decorator(compoment);
+        compoment = new Version50903Decorator(compoment);
 
-        compoment.operation();
+        String version = "5.9.2";
+//        compoment.operation(version);
+        compoment.operation(version);
     }
 }
